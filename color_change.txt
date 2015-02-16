@@ -1,0 +1,38 @@
+//
+// アプリ雛形
+//
+
+#include "lib/defines.hpp"
+#include "lib/appEnv.hpp"
+#include "lib/appEnv.hpp"
+#include "lib/random.hpp"
+
+enum Window {
+  WIDTH  = 512,
+  HEIGHT = 512
+};
+
+
+
+// 
+// メインプログラム
+// 
+int main() {
+  AppEnv env(Window::WIDTH, Window::HEIGHT, false, false);
+
+
+  
+  while (env.isOpen()) {
+	  if (env.isPushKey(GLFW_KEY_ESCAPE)) return 0;
+    env.setupDraw();
+	Vec2f pos = env.mousePosition(); 
+	
+		drawFillBox(0, 0, 100, 100, Color(1, 1, 1));
+	if (0 <= pos.x() && pos.x() <= 100 && 0 <= pos.y() && pos. y() <= 100){
+		drawFillBox(0, 0, 100, 100, Color(1, 0, 0));
+	}
+
+
+    env.update();
+  }
+}
